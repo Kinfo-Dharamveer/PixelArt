@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setSupportActionBar(toolbar);
         context = MainActivity.this;
-
+       // get view ids
         findIds();
 
 
