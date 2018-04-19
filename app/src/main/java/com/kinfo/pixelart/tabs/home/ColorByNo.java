@@ -28,7 +28,7 @@ import com.kinfo.pixelart.R;
 public class ColorByNo extends AppCompatActivity {
 
     private AdView mAdView;
-    private ImageView back_btn,pixel_image;
+    private ImageView back_btn,pixel_image,tick;
     private int image;
 
     @Override
@@ -40,10 +40,35 @@ public class ColorByNo extends AppCompatActivity {
         mAdView = (AdView) findViewById(R.id.adView);
         pixel_image = (ImageView) findViewById(R.id.pixel_image);
         back_btn = (ImageView) findViewById(R.id.back_btn);
+        tick = (ImageView) findViewById(R.id.tick);
+
+        if (savedInstanceState == null) {
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                image= 0;
+            } else {
+                image= extras.getInt("image");
+                pixel_image.setImageResource(image);
+            }
+        } else {
+            image= (Integer) savedInstanceState.getSerializable("image");
+            pixel_image.setImageResource(image);
+        }
+
+
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                finish();
+            }
+        });
+
+        tick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ColorByNo.this,Share.class);
+                intent.putExtra("image",image);
+                startActivity(intent);
             }
         });
 
@@ -83,18 +108,7 @@ public class ColorByNo extends AppCompatActivity {
 
 
 
-        if (savedInstanceState == null) {
-            Bundle extras = getIntent().getExtras();
-            if(extras == null) {
-                image= 0;
-            } else {
-                image= extras.getInt("image");
-                pixel_image.setImageResource(image);
-            }
-        } else {
-            image= (Integer) savedInstanceState.getSerializable("image");
-            pixel_image.setImageResource(image);
-        }
+
     }
 
     @Override

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 
 import com.kinfo.pixelart.MainActivity;
 import com.kinfo.pixelart.R;
+import com.kinfo.pixelart.SplitImage;
 import com.kinfo.pixelart.model.ImageModel;
 import com.kinfo.pixelart.tabs.home.ColorByNo;
 
@@ -47,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View v) {
                 Log.e("sandboxImage Clicked","sandboxImage Clicked");
-                Intent intent = new Intent(mContext,ColorByNo.class);
+                Intent intent = new Intent(mContext,SplitImage.class);
                 intent.putExtra("image",list.get(position).getImage());
                 mContext.startActivity(intent);
             }
