@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Pixel Art</string>
+
+    <!-- TODO - add your ad unit Ids -->
+    <!-- AdMob ad unit IDs -->
+    <string name="admob_app_id">ca-app-pub-2773461156805791~5092275002</string>
+    <string name="banner_home_footer">ca-app-pub-2773461156805791/9999974991</string>
+    <string name="interstitial_full_screen">ca-app-pub-2773461156805791/8088251231</string>
+    <string name="rewarded_video">ca-app-pub-2773461156805791/4190256874</string>
+</resources>
