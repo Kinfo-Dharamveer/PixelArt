@@ -48,7 +48,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View v) {
                 Log.e("sandboxImage Clicked","sandboxImage Clicked");
-                Intent intent = new Intent(mContext,SplitImage.class);
+                Intent intent = new Intent(mContext,ColorByNo.class);
                 intent.putExtra("image",list.get(position).getImage());
                 mContext.startActivity(intent);
             }

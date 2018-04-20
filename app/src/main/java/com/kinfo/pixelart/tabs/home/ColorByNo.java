@@ -20,6 +20,7 @@ import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdSize;
 import com.google.android.gms.ads.AdView;
 import com.kinfo.pixelart.R;
+import com.kinfo.pixelart.SplitImage;
 
 /**
  * Created by kinfo on 4/17/2018.
@@ -55,6 +56,13 @@ public class ColorByNo extends AppCompatActivity {
             pixel_image.setImageResource(image);
         }
 
+        pixel_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ColorByNo.this,SplitImage.class);
+                startActivity(intent);
+            }
+        });
 
         back_btn.setOnClickListener(new View.OnClickListener() {
             @Override
