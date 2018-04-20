@@ -19,7 +19,7 @@ public class SubscribeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        rootView = (ViewGroup) inflater.inflate(R.layout.gallery, container, false);
+        rootView = (ViewGroup) inflater.inflate(R.layout.subscribe, container, false);
 
         //findIds();
         return rootView;
