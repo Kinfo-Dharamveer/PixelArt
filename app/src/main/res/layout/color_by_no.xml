@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:ads="http://schemas.android.com/tools"
+    xmlns:ssiv="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="5">
+    android:weightSum="5"
+    ads:context=".tabs.home.ColorByNo">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,17 +16,19 @@
         android:orientation="horizontal">
 
         <LinearLayout
+            android:onClick="linBackArrow"
             android:layout_width="0dp"
+            android:padding="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="left">
 
             <ImageView
                 android:id="@+id/back_btn"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:src="@drawable/back_arrow" />
+                android:src="@drawable/leftarrow" />
         </LinearLayout>
 
         <LinearLayout
@@ -63,12 +67,22 @@
         android:layout_weight="3.5"
         android:gravity="center">
 
-        <com.kinfo.pixelart.utils.TouchImageView
+       <!-- <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
             android:id="@+id/pixel_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:src="@drawable/rabbit" />
+            android:src="@drawable/rabbit" />-->
+
+        <!--<com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+            android:id="@+id/pixel_image"
+            style="@style/mainPanel"
+            ssiv:src="@drawable/rabbit"/>-->
+
+        <com.kinfo.pixelart.utils.TouchImageView
+            android:id="@+id/pixel_image"
+            style="@style/mainPanel"
+            ssiv:src="@drawable/rabbit"/>
 
     </LinearLayout>
 
@@ -111,6 +125,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/minus"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/minus_grey" />
@@ -123,6 +138,7 @@
             android:gravity="center">
 
             <ImageView
+                android:id="@+id/plus"
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:src="@drawable/plus_black" />
@@ -169,7 +185,13 @@
                 android:layout_marginLeft="15dp"
                 android:src="@drawable/paint" />
 
-            <ImageView
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_colors"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginLeft="15dp" />
+
+           <!-- <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
@@ -191,7 +213,7 @@
                 android:layout_width="40dp"
                 android:layout_height="40dp"
                 android:layout_marginLeft="15dp"
-                android:src="@drawable/paint" />
+                android:src="@drawable/paint" />-->
 
         </LinearLayout>
 

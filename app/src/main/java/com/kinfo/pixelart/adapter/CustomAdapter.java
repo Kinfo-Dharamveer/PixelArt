@@ -17,6 +17,7 @@ import com.kinfo.pixelart.R;
 import com.kinfo.pixelart.SplitImage;
 import com.kinfo.pixelart.model.ImageModel;
 import com.kinfo.pixelart.tabs.home.ColorByNo;
+import com.kinfo.pixelart.utils.ImagePixelization;
 
 import java.util.ArrayList;
 
@@ -55,6 +56,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         });
 
     }
+
     @Override
     public int getItemCount() {
         return list.size();

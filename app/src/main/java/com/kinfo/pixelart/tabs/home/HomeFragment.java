@@ -1,5 +1,6 @@
 package com.kinfo.pixelart.tabs.home;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,9 @@ import android.widget.CursorAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.kinfo.pixelart.AppConstants;
 import com.kinfo.pixelart.R;
+import com.kinfo.pixelart.activity.MoreTabbedActivity;
 import com.kinfo.pixelart.adapter.CustomAdapter;
 import com.kinfo.pixelart.model.ImageModel;
 
@@ -23,26 +26,50 @@ import java.util.ArrayList;
  * Created by kinfo on 4/13/2018.
  */
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements View.OnClickListener {
 
     ViewGroup rootView;
     ArrayList<ImageModel> list,animal_list,fashion_list,kids_list,pleasure_list,food_list,people_list,game_list,holiday_list,nature_list;
     ImageModel model;
     RecyclerView recyclerView_animals,recyclerView_fashion,recyclerView_kids_time,recyclerView_pleasure,recyclerView_food,recyclerView_people,recyclerView_game,recyclerView_holiday,recyclerView_nature;
-    int[] imgArrayAnimals = new int[] {R.drawable.doggy,R.drawable.kitty,R.drawable.puppy,R.drawable.animal};
-    int[] imgArrayFashion = new int[] {R.drawable.woman,R.drawable.girly};
+    int[] imgArrayAnimals = new int[] {R.drawable.doggy,R.drawable.kitty,R.drawable.puppy,R.drawable.animal,R.drawable.chicken,R.drawable.vikson};
+    int[] imgArrayFashion = new int[] {R.drawable.cheerful_girl,R.drawable.colorful_girl,R.drawable.woman,R.drawable.girly,R.drawable.image};
     int[] imgArrayKids = new int[] {R.drawable.cartoon,R.drawable.wolf,R.drawable.kitty};
     int[] imgArrayPleasure = new int[] {R.drawable.home};
-    int[] imgArrayFood = new int[] {R.drawable.ice_cream};
+    int[] imgArrayFood = new int[] {R.drawable.ice_cream, R.drawable.fruit};
     int[] imgArrayPeople = new int[] {R.drawable.boy,R.drawable.girly};
     int[] imgArrayGame = new int[] {R.drawable.star_img};
     int[] imgArrayHoliday = new int[] {R.drawable.bunny};
     int[] imgArrayNature = new int[] {R.drawable.flowers};
 
+    private TextView tvMoreAnimals,tvMoreFashion,tvMoreKids,tvMorePleasure,tvMoreFood,tvMorePeople,tvMoreGame
+            ,tvMoreHoliday,tvMoreNature;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         rootView = (ViewGroup) inflater.inflate(R.layout.home, container, false);
+
+        //Text View
+        tvMoreAnimals =  rootView.findViewById(R.id.tvMoreAnimals);
+        tvMoreFashion =  rootView.findViewById(R.id.tvMoreFashion);
+        tvMoreKids =  rootView.findViewById(R.id.tvMoreKids);
+        tvMorePleasure =  rootView.findViewById(R.id.tvMorePleasure);
+        tvMoreFood =  rootView.findViewById(R.id.tvMoreFood);
+        tvMorePeople =  rootView.findViewById(R.id.tvMorePeople);
+        tvMoreGame =  rootView.findViewById(R.id.tvMoreGame);
+        tvMoreHoliday =  rootView.findViewById(R.id.tvMoreHoliday);
+        tvMoreNature =  rootView.findViewById(R.id.tvMoreNature);
+
+        tvMoreAnimals.setOnClickListener(this);
+        tvMoreFashion.setOnClickListener(this);
+        tvMoreKids.setOnClickListener(this);
+        tvMorePleasure.setOnClickListener(this);
+        tvMoreFood.setOnClickListener(this);
+        tvMorePeople.setOnClickListener(this);
+        tvMoreGame.setOnClickListener(this);
+        tvMoreHoliday.setOnClickListener(this);
+        tvMoreNature.setOnClickListener(this);
 
         recyclerView_animals = (RecyclerView) rootView.findViewById(R.id.animals);
         recyclerView_fashion = (RecyclerView) rootView.findViewById(R.id.fashion);
@@ -199,5 +226,73 @@ public class HomeFragment extends Fragment {
 
         //findIds();
         return rootView;
+    }
+
+    @Override
+    public void onClick(View view) {
+
+        switch (view.getId()){
+
+
+            case R.id.tvMoreAnimals:
+
+                openMoreActivity(AppConstants.ANIMALS);
+
+                break;
+            case R.id.tvMoreFashion:
+
+                openMoreActivity(AppConstants.FASHION);
+
+                break;
+
+            case R.id.tvMoreKids:
+
+                openMoreActivity(AppConstants.KIDSTIME);
+
+                break;
+
+            case R.id.tvMorePleasure:
+
+                openMoreActivity(AppConstants.PLEASURE);
+
+                break;
+
+            case R.id.tvMoreFood:
+
+                openMoreActivity(AppConstants.FOOD);
+
+                break;
+
+            case R.id.tvMorePeople:
+
+                openMoreActivity(AppConstants.PEOPLE);
+
+                break;
+            case R.id.tvMoreGame:
+
+                openMoreActivity(AppConstants.GAME);
+
+                break;
+            case R.id.tvMoreHoliday:
+
+                openMoreActivity(AppConstants.HOLIDAY);
+
+                break;
+
+            case R.id.tvMoreNature:
+
+                openMoreActivity(AppConstants.NATURE);
+
+                break;
+
+
+        }
+    }
+
+
+    public void openMoreActivity(String value){
+        Intent intent  = new Intent(getActivity(), MoreTabbedActivity.class);
+        intent.putExtra(value,value);
+        startActivity(intent);
     }
 }

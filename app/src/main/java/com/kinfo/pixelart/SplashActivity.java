@@ -6,6 +6,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.kinfo.pixelart.activity.HomeNavigationActivity;
+
 /**
  * Created by kinfo on 4/13/2018.
  */
@@ -34,7 +36,7 @@ public class SplashActivity extends Activity {
             public void run() {
                 // This method will be executed once the timer is over
                 // Start your app main activity
-                    Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+                    Intent intent = new Intent(SplashActivity.this, HomeNavigationActivity.class);
                     startActivity(intent);
                     finish();
             }

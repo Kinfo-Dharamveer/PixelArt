@@ -11,15 +11,30 @@
         android:layout_margin="20dp"
         android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="10dp"
-            android:text="Animals"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Animals"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMoreAnimals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/animals"
@@ -27,15 +42,34 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Fashion"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Fashion"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMoreFashion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
+
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/fashion"
@@ -43,15 +77,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Kids Time"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Kids Time"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMoreKids"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/kids_time"
@@ -59,15 +108,30 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Pleasure"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pleasure"
+                android:layout_alignParentLeft="true"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMorePleasure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/pleasure"
@@ -75,15 +139,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Food"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Food"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMoreFood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/food"
@@ -91,15 +171,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="People"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="People"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMorePeople"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/people"
@@ -107,16 +203,33 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Game"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
 
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Game"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/tvMoreGame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/game"
@@ -124,34 +237,64 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Holiday"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Holiday"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
 
+            <TextView
+                android:id="@+id/tvMoreHoliday"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/holiday"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="left|center"
-            android:layout_marginTop="20dp"
-            android:text="Nature"
-            android:textColor="@color/black_color"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="10dp"
+            >
 
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Nature"
+                android:textColor="@color/black_color"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvMoreNature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:layout_alignParentRight="true"
+                android:text="@string/more"
+                android:textColor="@color/blue"/>
+
+        </RelativeLayout>
         <android.support.v7.widget.RecyclerView
             android:id="@+id/nature"
             android:layout_width="match_parent"

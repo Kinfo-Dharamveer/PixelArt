@@ -7,4 +7,122 @@
     <string name="banner_home_footer">ca-app-pub-2773461156805791/9999974991</string>
     <string name="interstitial_full_screen">ca-app-pub-2773461156805791/8088251231</string>
     <string name="rewarded_video">ca-app-pub-2773461156805791/4190256874</string>
+
+    <string name="animate_pixelation">Animate</string>
+    <string name="async_task">Using AyncTask</string>
+    <string name="builtin_pixelization">Built-in Pixelization</string>
+
+    <string name="score_count"> 200</string>
+    <string name="score">Score : </string>
+    <string name="menu"> Main Menu</string>
+    <string name="game_score">Game Score</string>
+    <string name="start_game">Start Game</string>
+
+
+    <string name="created_by_bennykok"><![CDATA[Created by <a href="http://bennykok.weebly.com/contact.html">BennyKok</a>]]></string>
+    <string name="get_more_apps"><![CDATA[<a href="https://play.google.com/store/apps/dev?id=9219874075463759288&amp;hl=zh_HK">Get more apps</a>]]></string>
+    <string name="join_the_community"><![CDATA[<a href="https://plus.google.com/communities/108794551381643757096">Join the community</a>]]></string>
+    <string name="version_code">v1.0.3</string>
+    <string name="title_activity_project_manager">Project Manager</string>
+    <string name="save_project">Save project</string>
+    <string name="save">Save</string>
+    <string name="name">Name</string>
+    <string name="brough_to_you_by"><![CDATA[<b>Brought to you by these amazing open source project:</b>]]></string>
+    <string name="opensource_library">Open Source Library</string>
+    <string name="deletelayer">Delete layer</string>
+    <string name="deletelayerwarning">Are you sure to delete this layer?</string>
+    <string name="delete">Delete</string>
+    <string name="merge">merge</string>
+    <string name="mergealllayers">Merge all layers</string>
+    <string name="mergealllayerswarning">Are you sure to merge all layers?</string>
+    <string name="clearcurrentlayer">Clear current layer</string>
+    <string name="clearcurrentlayerwarning">Are you sure to clear current layer?</string>
+    <string name="clear">clear</string>
+    <string name="mergedownlayer">Merge down layer</string>
+    <string name="mergedownlayerwarning">Are you sure to merge down layer?</string>
+    <string name="newproject">New Project</string>
+    <string name="create">Create</string>
+    <string name="cancel">Cancel</string>
+    <string name="rename">Rename</string>
+    <string name="deleteproject">Delete project</string>
+    <string name="deleteprojectwarning">Are you sure to delete this project?!</string>
+    <string name="projectdeleted">Project deleted</string>
+    <string name="unabletodeleteproject">Unable to delete project!</string>
+    <string name="ok">ok</string>
+    <string name="merge_down">Merge down</string>
+    <string name="clear_current_layer">Clear</string>
+    <string name="remove_current_layer">Remove</string>
+    <string name="toggle_visibility">Toggle visibility</string>
+    <string name="show_all_layers">Show all layers</string>
+    <string name="hide_all_layers">Hide all layers</string>
+    <string name="merge_all_layers">Merge all layers</string>
+    <string name="export">Export</string>
+    <string name="png">PNG</string>
+    <string name="gif">GIF</string>
+    <string name="sprite_atlas">Sprite Atlas</string>
+    <string name="folder">Folder</string>
+    <string name="only_show_selected_layer">Only show selected layer</string>
+    <string name="layer">Layer</string>
+    <string name="layers">Layers</string>
+    <string name="reset_view_port">Reset View Port</string>
+    <string name="grid_on_off">Grid on/off</string>
+    <string name="project">Project</string>
+    <string name="project_manager">Project Manager</string>
+    <string name="open">Open</string>
+    <string name="about">About</string>
+    <string name="new_new">New</string>
+    <string name="something_went_wrong">Something went wrong!</string>
+    <string name="error_while_loading_project">Error while loading your project</string>
+    <string name="no_project_found">No project found</string>
+    <string name="duplicate_layer">Duplicate</string>
+
+
+    <string-array name="navigation_drawer_items_array">
+        <item>Rate</item>
+        <item>Feedback</item>
+        <item>About</item>
+    </string-array>
+    <string name="title_activity_main2">No. Draw Kinfo</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="noting_here">Noting here...</string>
+    <string name="long_press_to_add_the_favorite">Long press to add the favorite</string>
+    <string name="my_work">My Work</string>
+    <string name="favorite">Favorite</string>
+    <string name="more">More</string>
+    <string name="title_activity_more_tabbed">MoreTabbedActivity</string>
+    <string name="section_format">ANIMALS: %1$d</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="if_you_enjoyed_no_draw_please_support_us_by_giving_us_a_review">If you enjoyed No.Draw, please support us by giving us a review</string>
+    <string name="rate">RATE</string>
+    <string name="next_time">NEXT TIME</string>
+
+    <string name="mail_feedback_email">YourEmailAdress</string>
+    <string name="mail_feedback_subject">Feedback on your app</string>
+    <string name="mail_feedback_message">Hi,
+\n\nYour Feedback sample app rocks! I would like to give you some feedback:</string>
+    <string name="title_send_feedback">Choose an E-mail:</string>
+    <string name="about_us">About us</string>
+    <string name="thankyoucontact">Thank for using No.Draw! If you have any feedback, please don\'t hesitate to contact us.</string>
+    <string name="contact_us">contact us</string>
+    <string name="conti">Continue</string>
+    <string name="you_cannot_undo_this_operation">You cannot undo this operation</string>
+    <string name="delete_this_picture">Delete this picture</string>
+    <string name="share">Share</string>
+    <string name="display_background">Display Background</string>
+    <string name="tap_no_draw_to_copy_this_hashtag">Tap #No.Draw to copy \n this hashtag.</string>
+
+    <string name="camera">Camera</string>
+    <string name="gallery">Gallery</string>
+    <string name="choose_photo">Choose Photo</string>
+    <string name="crop_action_support">Sorry! your device doesn\'t support cropping action.</string>
+    <string name="crop_action_error">Sorry! image is not cropped.</string>
+    <string name="camera_capture_error">Sorry! image is not captured. Please try again.</string>
+    <string name="gallery_pick_error">Sorry! image is not picked from gallery. Please try again.</string>
 </resources>

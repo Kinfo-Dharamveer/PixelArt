@@ -1,0 +1,55 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/work"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageMyWork"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/mywork_black"/>
+        <TextView
+            android:id="@+id/tvWork"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_work"
+            android:textColor="@color/black_color"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/fav"
+        android:orientation="horizontal"
+        android:layout_weight="1"
+        android:gravity="center">
+
+        <ImageView
+            android:id="@+id/imageFavorite"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/favourite_black"/>
+        <TextView
+            android:id="@+id/tvFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/favorite"
+            android:textColor="@color/black_color"
+            android:textSize="14sp"
+            android:padding="5dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

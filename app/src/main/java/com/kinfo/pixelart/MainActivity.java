@@ -21,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.kinfo.pixelart.fragments.MyWorkHomeFragment;
 import com.kinfo.pixelart.tabs.gallery.GalleryFragment;
 import com.kinfo.pixelart.tabs.home.ColorByNo;
 import com.kinfo.pixelart.tabs.home.HomeFragment;
@@ -70,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new HomeFragment(), "");
         adapter.addFragment(new GalleryFragment(), "");
-        adapter.addFragment(new MyWorkFragment(), "");
+        adapter.addFragment(new MyWorkHomeFragment(), "");
         viewPager.setAdapter(adapter);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);

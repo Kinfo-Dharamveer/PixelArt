@@ -5,11 +5,12 @@
     <color name="colorAccent">#135172</color>
 
     <color name="black_color">#000000</color>
+    <color name="light_black">#616161</color>
     <color name="white_color">#FFFFFF</color>
     <!--<color name="app_color">#0077b5</color>-->
     <color name="app_color">#135172</color>
-    <color name="grey">#80000000</color>
-    <color name="light_grey">#d3d3d3</color>
+    <color name="gray">#80000000</color>
+    <color name="light_gray">#d3d3d3</color>
     <color name="transparent">#00FFFFFF</color>
     <color name="off_white">#AAAEA5</color>
 
@@ -30,6 +31,21 @@
     <color name="brick_red">#FE3838</color>
     <color name="blue_btn">#1fa5fb</color>
 
+       <!--Grey color shades-->
+
+    <color name="grey">#DCDCDC</color>
+    <color name="light_grey">#D3D3D3</color>
+    <color name="silver_grey">#C0C0C0</color>
+    <color name="dark_grey">#A9A9A9</color>
+    <color name="gainsboro_grey">#808080</color>
+    <color name="dim_grey">#696969</color>
+    <color name="light_slate_grey">#778899</color>
+    <color name="slate_grey">#708090</color>
+    <color name="dark_slate_grey">#2F4F4F</color>
+    <color name="black_grey">#000000</color>
+
+    <color name="border_color">#ececec</color>
+    <color name="menu_bg">#232526</color>
 
 
 </resources>
