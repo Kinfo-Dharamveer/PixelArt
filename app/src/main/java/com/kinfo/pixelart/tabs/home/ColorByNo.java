@@ -1,10 +1,12 @@
 package com.kinfo.pixelart.tabs.home;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -17,6 +19,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -37,6 +40,9 @@ import com.kinfo.pixelart.SplitImage;
 import com.kinfo.pixelart.activity.DrawingActivity;
 import com.kinfo.pixelart.model.RGB;
 import com.kinfo.pixelart.pixelate.Pixelate;
+import com.kinfo.pixelart.pixeleditor.FrameRecyclerAdapter;
+import com.kinfo.pixelart.pixeleditor.PixelEditorView2;
+import com.kinfo.pixelart.pixeleditor.Utils;
 import com.kinfo.pixelart.utils.ImagePixelization;
 import com.kinfo.pixelart.utils.TouchImageView;
 import com.squareup.picasso.Picasso;
@@ -54,7 +60,10 @@ import nl.dionsegijn.pixelate.OnPixelateListener;
  * Created by kinfo on 4/17/2018.
  */
 
-public class ColorByNo extends AppCompatActivity implements Animation.AnimationListener {
+public class ColorByNo extends AppCompatActivity implements
+        Animation.AnimationListener,
+        PixelEditorView2.OnEditListener
+{
 
     private AdView mAdView;
     private ImageView back_btn,tick;
@@ -63,6 +72,8 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
     private int image;
     private String image_path="";
     Animation zoom_in_anim,zoom_out_anim;
+    private static final float MIN_ZOOM = 1.0f;
+    private static final float MAX_ZOOM = 50f;//set Maximum zooming level
 
     final private static int SEEKBAR_ANIMATION_DURATION = 10000;
     final private static int TIME_BETWEEN_TASKS = 400;
@@ -79,6 +90,9 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
     ArrayList<RGB> rgb_color = new ArrayList<RGB>();
     ArrayList<String> rgb_value = new ArrayList<String>();
     RGB rgb;
+    private PixelEditorView2 editorView;
+    private FrameRecyclerAdapter framesAdapter;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,20 +100,22 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title not the title bar
         setContentView(R.layout.color_by_no);
 
-        mAdView = (AdView) findViewById(R.id.adView);
-        minus = (ImageView) findViewById(R.id.minus);
-        plus = (ImageView) findViewById(R.id.plus);
-        pixel_image = (TouchImageView) findViewById(R.id.pixel_image);
+        mAdView =  findViewById(R.id.adView);
+        minus =  findViewById(R.id.minus);
+        plus =  findViewById(R.id.plus);
+        pixel_image =  findViewById(R.id.pixel_image);
         //pixel_image.setMinimumDpi(50);
         //pixel_image.setMaxScale(2F);
-        back_btn = (ImageView) findViewById(R.id.back_btn);
-        tick = (ImageView) findViewById(R.id.tick);
+        back_btn =  findViewById(R.id.back_btn);
+        tick =  findViewById(R.id.tick);
+        editorView =  findViewById(R.id.editor);
 
         zoom_in_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_in);
         zoom_out_anim= AnimationUtils.loadAnimation(getApplicationContext(),R.anim.zoom_out);
 
         zoom_in_anim.setAnimationListener(ColorByNo.this);
         zoom_out_anim.setAnimationListener(ColorByNo.this);
+
 
         if (savedInstanceState == null) {
             Bundle extras = getIntent().getExtras();
@@ -121,6 +137,7 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
                     bitmap = Bitmap.createScaledBitmap(bitmap,parent.getWidth(),parent.getHeight(),true);*/
                     image_path = extras.getString("image_path");
                     mImageBitmap = BitmapFactory.decodeFile(image_path);
+
                     //Picasso.with(ColorByNo.this).load(new File(image_path)).resize(140, 140).centerCrop().into(pixel_image);
                 }
 
@@ -212,7 +229,6 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
 
         mAdView.loadAd(adRequest);
 
-
         //pixel_image.setImageBitmap(mImageBitmap);
         invokePixelization();
 
@@ -266,6 +282,7 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
                     mImageBitmap);
         } else {
             pixel_image.setImageDrawable(pixelizeImage(PROGRESS_TO_PIXELIZATION_FACTOR, mImageBitmap));
+            pixel_image.setMaxZoom(4f);
             // 0.013
 
 
@@ -280,6 +297,26 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
         finish();
     }
 
+    @Override
+    public void onPreEdit() {
+
+    }
+
+    @Override
+    public void onEdit() {
+        framesAdapter.invalidateFrame(editorView.getEditingFrame());
+        setThemeColor();
+    }
+
+    private int getAverageColor() {
+        return editorView.getTarget().getAverageColor(editorView.getEditingFrame());
+    }
+
+
+    private void setThemeColor() {
+        int color = Utils.maxSaturation(getAverageColor());
+
+    }
 
     private class PixelizeImageAsyncTask extends AsyncTask<Object, Void, BitmapDrawable> {
         @Override
@@ -311,6 +348,7 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
         } else {
             return customImagePixelization(pixelizationFactor, bitmap);
         }
+
     }
 
     public BitmapDrawable builtInPixelization(float pixelizationFactor, Bitmap bitmap) {
@@ -368,6 +406,33 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
         int[] pixels = new int[yPixels * xPixels];
         int maxX, maxY;
 
+        int[][] rgbValues = new int[bitmap.getWidth()][bitmap.getHeight()];
+
+
+        //Top Left
+        Log.i("Pixel Value", "Top Left pixel: " + Integer.toHexString(bitmap.getPixel(0, 0)));
+        //Top Right
+        Log.i("Pixel Value", "Top Right pixel: " + Integer.toHexString(bitmap.getPixel(31, 0)));
+        //Bottom Left
+        Log.i("Pixel Value", "Bottom Left pixel: " + Integer.toHexString(bitmap.getPixel(0, 31)));
+        //Bottom Right
+        Log.i("Pixel Value", "Bottom Right pixel: " + Integer.toHexString(bitmap.getPixel(31, 31)));
+
+
+        //get the ARGB value from each pixel of the image and store it into the array
+        for(int i=0; i < width; i++)
+        {
+            for(int j=0; j < height; j++)
+            {
+                //This is a great opportunity to filter the ARGB values
+                rgbValues[i][j] = bitmap.getPixel(i, j);
+               // Log.i("Pixel Value",  Integer.toHexString(bitmap.getPixel(i, j)));
+
+            }
+
+        }
+
+
         for (int y = 0; y < height; y+=yPixels)
         {
             for (int x = 0; x < width; x+=xPixels)
@@ -403,7 +468,7 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
 
                 rgb_value.add(rgb.getRgb_value());
                 rgb_color.add(rgb);
-                
+
                 //pixel_c = Color.rgb(211/ numPixels , 211/ numPixels , 211/ numPixels);
                 //Log.i("pixel",pixel+"");
                 //Log.e("red green blue",red+" "+green+" "+blue);
@@ -497,5 +562,6 @@ public class ColorByNo extends AppCompatActivity implements Animation.AnimationL
         }
         return result;
     }
+
 
 }

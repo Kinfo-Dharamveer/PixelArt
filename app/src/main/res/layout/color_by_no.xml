@@ -60,19 +60,19 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="3.5"
         android:gravity="center">
 
-       <!-- <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
-            android:id="@+id/pixel_image"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:src="@drawable/rabbit" />-->
+        <!-- <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+             android:id="@+id/pixel_image"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_margin="20dp"
+             android:src="@drawable/rabbit" />-->
 
         <!--<com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
             android:id="@+id/pixel_image"
@@ -84,7 +84,15 @@
             style="@style/mainPanel"
             ssiv:src="@drawable/rabbit"/>
 
-    </LinearLayout>
+        <com.kinfo.pixelart.pixeleditor.PixelEditorView2
+            android:id="@+id/editor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+
+
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -191,29 +199,29 @@
                 android:layout_height="40dp"
                 android:layout_marginLeft="15dp" />
 
-           <!-- <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/paint" />
+            <!-- <ImageView
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+                 android:layout_marginLeft="15dp"
+                 android:src="@drawable/paint" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/paint" />
+             <ImageView
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+                 android:layout_marginLeft="15dp"
+                 android:src="@drawable/paint" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/paint" />
+             <ImageView
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+                 android:layout_marginLeft="15dp"
+                 android:src="@drawable/paint" />
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="15dp"
-                android:src="@drawable/paint" />-->
+             <ImageView
+                 android:layout_width="40dp"
+                 android:layout_height="40dp"
+                 android:layout_marginLeft="15dp"
+                 android:src="@drawable/paint" />-->
 
         </LinearLayout>
 

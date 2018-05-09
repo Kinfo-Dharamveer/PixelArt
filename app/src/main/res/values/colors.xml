@@ -3,6 +3,8 @@
     <color name="colorPrimary">#E91E63</color>
     <color name="colorPrimaryDark">#C2185B</color>
     <color name="colorAccent">#135172</color>
+    <color name="accent">#084</color>
+
 
     <color name="black_color">#000000</color>
     <color name="light_black">#616161</color>
