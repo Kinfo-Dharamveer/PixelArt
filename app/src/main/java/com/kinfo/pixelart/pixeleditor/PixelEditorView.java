@@ -7,6 +7,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.PointF;
@@ -20,15 +22,14 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 
-
 import com.kinfo.pixelart.R;
+import com.kinfo.pixelart.tabs.home.ColorByNo;
 
 import java.util.List;
 
-/**
- * Updated, cleaner version of the PixelEditorView control.
- */
-public class PixelEditorView2 extends View implements ScaleGestureDetector.OnScaleGestureListener, GestureDetector.OnGestureListener {
+import static com.kinfo.pixelart.tabs.home.ColorByNo.mImageBitmap;
+
+public class PixelEditorView extends View implements ScaleGestureDetector.OnScaleGestureListener, GestureDetector.OnGestureListener {
 
     // Editor variables
 
@@ -62,13 +63,13 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
     private ImageRenderer targetRenderer;
     private ImageRenderer prevFrameRenderer;
     private boolean lightBoxEnabled = false;
-
     // Manipulation variables
 
     private ScaleGestureDetector scaleGestureDetector;
     private GestureDetector gestureDetector;
 
     // Private methods
+
 
     public void center() {
         actualOffset.set(0, 0);
@@ -96,7 +97,7 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
         invalidate();
     }
 
-    public PixelEditorView2(Context context, AttributeSet attrs) {
+    public PixelEditorView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
         Resources res = context.getResources();
@@ -117,9 +118,9 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
         previewPaint = new Paint();
         previewPaint.setAntiAlias(false);
 
-      //  gridPaint = new Paint();
-       // gridPaint.setColor(Color.BLACK);
-       // gridPaint.setStrokeWidth(0);
+        //  gridPaint = new Paint();
+        // gridPaint.setColor(Color.BLACK);
+        // gridPaint.setStrokeWidth(0);
 
         borderPaint = new Paint();
         borderPaint.setStyle(Paint.Style.STROKE);
@@ -137,7 +138,7 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
 
         targetRenderer = new ImageRenderer();
         prevFrameRenderer = new ImageRenderer();
-        setTarget(new PixelArt(100, 100));
+        setTarget(new PixelArt(30, 30));
         brush = new Freeform(this, editingFrame, (byte)1);
     }
 
@@ -198,7 +199,7 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
     }
 
 
-    public void setOnEditListener(OnEditListener listener) {
+    public void setOnEditListener(PixelEditorView.OnEditListener listener) {
         this.onEditListener = listener;
     }
 
@@ -238,12 +239,12 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
 
         if (event.getPointerCount() == 1) {
             int action = event.getActionMasked(),
-                pointerIndex = event.getActionIndex();
+                    pointerIndex = event.getActionIndex();
             MotionEvent.PointerCoords coords;
             int width = getWidth(),
-                height = getHeight();
+                    height = getHeight();
             float rWidth = modifiedSize.width(),
-                  rHeight = modifiedSize.height();
+                    rHeight = modifiedSize.height();
             int ex, ey;
 
             switch (action) {
@@ -306,29 +307,41 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
     public void onDraw(Canvas canvas) {
         recalculateView();
 
+
+      // Bitmap bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.boy);
+        canvas.drawBitmap(toGrayscale(mImageBitmap), null, modifiedSize, previewPaint);
+
         canvas.drawRect(0, 0, getWidth(), getHeight(), checkerPaint);
 
         canvas.drawRect(modifiedSize, borderPaint);
         if (lightBoxEnabled && editingFrame > 0) {
             canvas.drawBitmap(prevFrame, null, modifiedSize, prevFramePaint);
+
+
         }
         canvas.drawBitmap(rendered, null, modifiedSize, previewPaint);
+        //  canvas.drawBitmap(b, null, modifiedSize, prevFramePaint);
 
         if (isDrawing) {
             canvas.drawBitmap(edit, null, modifiedSize, previewPaint);
         }
 
-     /*   if (drawGrid && zoom >= 4) {
-            int w = target.getWidth(), h = target.getHeight();
-            float sx = modifiedSize.left, sy = modifiedSize.top,
-                  ex = modifiedSize.right, ey = modifiedSize.bottom;
-            for (int x = 1; x < w; ++x) {
-                canvas.drawLine(sx + x * zoom * scaleFactor, sy, sx + x * zoom * scaleFactor, ey, gridPaint);
-            }
-            for (int y = 1; y < h; ++y) {
-                canvas.drawLine(sx, sy + y * zoom * scaleFactor, ex, sy + y * zoom * scaleFactor, gridPaint);
-            }
-        }*/
+    }
+    public Bitmap toGrayscale(Bitmap bmpOriginal)
+    {
+        int width, height;
+        height = bmpOriginal.getHeight();
+        width = bmpOriginal.getWidth();
+
+        Bitmap bmpGrayscale = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+        Canvas c = new Canvas(bmpGrayscale);
+        Paint paint = new Paint();
+        ColorMatrix cm = new ColorMatrix();
+        cm.setSaturation(0);
+        ColorMatrixColorFilter f = new ColorMatrixColorFilter(cm);
+        paint.setColorFilter(f);
+        c.drawBitmap(bmpOriginal, 0, 0, paint);
+        return bmpGrayscale;
     }
 
     ////////////////////////////////////////////////////////////////////////
@@ -419,3 +432,4 @@ public class PixelEditorView2 extends View implements ScaleGestureDetector.OnSca
         void onEdit();
     }
 }
+

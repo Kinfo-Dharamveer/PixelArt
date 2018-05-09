@@ -29,13 +29,13 @@ public abstract class Brush {
 
     private int frame;
 
-    private PixelEditorView2 editor;
+    private PixelEditorView editor;
 
     private PixelArt art;
 
     private boolean isCanceled = false;
 
-    public Brush(PixelEditorView2 editor, int frame, byte color) {
+    public Brush(PixelEditorView editor, int frame, byte color) {
         this.editor = editor;
         art = editor.getTarget();
         this.frame = frame;
@@ -44,7 +44,7 @@ public abstract class Brush {
         refresh();
     }
 
-    protected void setEditor(PixelEditorView2 editor) {
+    protected void setEditor(PixelEditorView editor) {
         this.editor = editor;
     }
 

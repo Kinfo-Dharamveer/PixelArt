@@ -2,6 +2,8 @@ package com.kinfo.pixelart.pixeleditor;
 
 import android.graphics.Point;
 
+import com.kinfo.pixelart.tabs.home.ColorByNo;
+
 /**
  * Brush that allows creating freeform lines.
  */
@@ -9,7 +11,7 @@ public class Freeform extends Brush {
 
     private Point last;
 
-    public Freeform(PixelEditorView2 editor, int layer, byte color) {
+    public Freeform(PixelEditorView editor, int layer, byte color) {
         super(editor, layer, color);
     }
 
