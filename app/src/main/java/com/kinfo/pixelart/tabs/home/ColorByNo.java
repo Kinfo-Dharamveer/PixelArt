@@ -14,6 +14,7 @@ import android.graphics.PointF;
 import android.graphics.RectF;
 import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -229,7 +230,6 @@ public class ColorByNo extends AppCompatActivity implements
 
     }
 
-
     @Override
     public void onPause() {
         if (mAdView != null) {
@@ -330,6 +330,10 @@ public class ColorByNo extends AppCompatActivity implements
             Bitmap bitmap = (result).getBitmap();
             mImageBitmap = bitmap;
 
+
+            //Drawable drawable = new BitmapDrawable(getResources(), mImageBitmap);
+
+
             /*Bitmap bitmap = ((BitmapDrawable)result).getBitmap();
             mImageView.setImage(ImageSource.bitmap(bitmap));*/
         }
@@ -397,6 +401,10 @@ public class ColorByNo extends AppCompatActivity implements
                 mPixelatedBitmap.getHeight())) {
             mPixelatedBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         }
+
+
+
+
         int xPixels = (int) (pixelizationFactor * ((float) width));
         xPixels = xPixels > 0 ? xPixels : 1;
         int yPixels = (int) (pixelizationFactor * ((float) height));
@@ -408,6 +416,7 @@ public class ColorByNo extends AppCompatActivity implements
         int maxX, maxY;
 
         int[][] rgbValues = new int[bitmap.getWidth()][bitmap.getHeight()];
+
 
 
         //Top Left
@@ -425,9 +434,7 @@ public class ColorByNo extends AppCompatActivity implements
             for (int j = 0; j < height; j++) {
                 //This is a great opportunity to filter the ARGB values
                 rgbValues[i][j] = bitmap.getPixel(i, j);
-
             }
-
         }
 
 

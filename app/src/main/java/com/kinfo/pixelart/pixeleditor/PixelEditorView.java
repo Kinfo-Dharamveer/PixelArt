@@ -308,8 +308,10 @@ public class PixelEditorView extends View implements ScaleGestureDetector.OnScal
         recalculateView();
 
 
-      // Bitmap bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.boy);
-        canvas.drawBitmap(toGrayscale(mImageBitmap), null, modifiedSize, previewPaint);
+       Bitmap bitmap=toGrayscale(mImageBitmap);
+
+
+        canvas.drawBitmap(bitmap, null, modifiedSize, previewPaint);
 
         canvas.drawRect(0, 0, getWidth(), getHeight(), checkerPaint);
 
